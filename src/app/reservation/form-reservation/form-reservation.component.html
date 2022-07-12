@@ -1,0 +1,51 @@
+<br>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Enregistrer un nouveau Reservation</h2>
+      <form [formGroup]="reservationForm" (ngSubmit)="onSaveReservation()">
+        <div class="form-group">
+          <label for="position">Position</label>
+          <select type="select" id="position" class="form-control" formControlName="position">
+
+            <option value="">-- S'il vous plait choisissez votre position --</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Bizerte">Bizerte</option>
+            <option value="Sousse">Sousse</option>
+            <option value="Sfax">Sfax</option>
+            <option value="Gabes">Gabes</option>
+            <option value="Douz">Douz</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="voiture">Voiture</label>
+          <select type="select" id="position" class="form-control" formControlName="voiture">
+
+            <option value="">-- S'il vous plait choisissez votre voiture --</option>
+            <option  value="Renault">Renault</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="KIA">KIA</option>
+            <option value="RangeRover">Range Rover</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="datee">Date de Déparet</label>
+            <input type="date" id="datee" class="form-control" formControlName="datee">       
+        </div>
+        <div class="form-group">
+          <label for="dates">Date de Retour</label>
+            <input type="date" id="dates" class="form-control" [min]="this.reservationForm.get('datee').value" formControlName="dates">       
+        </div>
+      
+
+
+        <button class="btn btn-success" [disabled]="reservationForm.invalid" type="submit" (click)="onSaveReservation()">Enregistrer
+                
+        </button>
+  
+      </form>
+    </div>
+  </div>
+  <br>
